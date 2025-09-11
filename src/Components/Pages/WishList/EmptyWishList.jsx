@@ -1,15 +1,15 @@
 import React from "react";
 import HeartIcon from "../../../assets/heart.svg";
 import BrokeHeart from "../../../assets/BrokeHeart.svg";
-import "./EmptyWishList.css";
+import style from "./EmptyWishList.module.css";
 
 function EmptyWishList() {
   return (
-    <div className="empty-wishlist-container">
+    <div className={`${style.emptyWishlistContainer}`}>
 
       {/* Header */}
       <header
-        className="d-flex justify-content-between align-items-center px-4 fixed-top w-100 empty-wishlist-header"
+        className={`${style.emptyWishlistHeader} d-flex justify-content-between align-items-center px-4 fixed-top w-100 `}
       >
         <h5 className="m-0 fw-bold">Movie App</h5>
         <div className="d-flex align-items-center gap-1">
@@ -30,7 +30,7 @@ function EmptyWishList() {
  
       {/* Content */}
       <div
-        className="text-center d-flex flex-column justify-content-center align-items-center empty-wishlist-content"
+        className={`${style.emptyWishlistContent} text-center d-flex flex-column justify-content-center align-items-center `}
       >
         <img
           src={BrokeHeart}
@@ -40,8 +40,8 @@ function EmptyWishList() {
         {/* <i class="fa-solid fa-heart-crack"></i> */}
         <p className="mt-3 fs-4">Favourite is Empty...</p>
 
-        <button 
-          className="btn btn-warning mt-3 px-5 w-25 rounded-3 empty-wishlist-button"
+        <button
+          className={`${style.emptyWishlistButton} btn btn-warning mt-3 px-5 w-25 rounded-3 `}
         >
           Back to home
         </button>

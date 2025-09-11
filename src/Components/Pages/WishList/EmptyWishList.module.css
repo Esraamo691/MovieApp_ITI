@@ -1,16 +1,16 @@
-.empty-wishlist-container {
+.emptyWishlistContainer {
   padding-top: 70px;
 }
 
-.empty-wishlist-header {
+.emptyWishlistHeader {
   background-color: #FFE353;
   height: 55px;
 }
 
-.empty-wishlist-content {
+.emptyWishlistContent {
   min-height: 80vh;
 }
 
-.empty-wishlist-button {
+.emptyWishlistButton {
   background-color: #FFE353;
 }
