@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import styles from "../Home/Home.module.css";
-
+import { useLoading } from "../../Context/LoadingContext.jsx";
 export default function Home() {
   const [index, setIndex] = useState(0);
   const [slides, setSlides] = useState([]);
   const timeRunning = 3000;
-  const timeAutoNext = 4000;
-
+  const timeAutoNext = 2000;
+  const { setLoading } = useLoading();
   useEffect(() => {
     const apiKey = import.meta.env.VITE_API_KEY;
     const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`;
-
+    setLoading(true);
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -19,8 +19,10 @@ export default function Home() {
         );
         setSlides(results);
         setIndex(0);
+        setLoading(false);
       })
       .catch(console.error);
+    setLoading(false);
   }, []);
 
   // Auto slide
@@ -69,8 +71,10 @@ export default function Home() {
               </div>
               <div className={styles.des}>{movie.overview}</div>
               <div className={styles.buttons}>
-                <button>SEE MORE</button>
-                <button>ADD TO WISHLIST</button>
+                <button className={styles.btn}>
+                  <i className=" fas fa-play"></i>
+                  WATCH</button>
+                <button>+ ADD TO FAVOURITE</button>
               </div>
             </div>
           </div>

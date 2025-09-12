@@ -5,8 +5,8 @@ import MovieDetails from "./Components/Pages/MovieDetails/MovieDetails";
 import MovieList from "./Components/Pages/MovieList/MovieList";
 import SearchList from "./Components/Pages/SearchResult/SearchList";
 import WishList from "./Components/Pages/WishList/WishList";
-import EmptyWishList from "./Components/Pages/WishList/EmptyWishList";
 import NotFound from "./Components/NotFound";
+import TvShows from "./Components/Pages/TvShows/TvShows";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -16,17 +16,18 @@ export default function App() {
       children: [
         { index: true, element: <Home /> },
         { path: "/details", element: <MovieDetails /> },
-        { path: "/Movie-list", element: <MovieList /> },
+        { path: "/movies", element: <MovieList /> },
         { path: "/search", element: <SearchList /> },
         { path: "/watch-list", element: <WishList /> },
-        { path: "/empty-list", element: <EmptyWishList /> },
-        { path: "*", element: <NotFound/> },
+        { path: "/tv-show", element: <TvShows/> },
+        { path: "*", element: <NotFound /> },
       ],
     },
   ]);
-  return <>
-  <RouterProvider router={router} />
-  
-  </>;
-}
 
+  return (
+    <>
+      <RouterProvider router={router} />
+    </>
+  );
+}
