@@ -1,0 +1,103 @@
+.container {
+  max-width: 100%;
+  margin: 0;
+  padding: 0 15px;
+}
+
+.row {
+  margin: 0 -8px;
+}
+
+.col {
+  padding: 0 8px;
+  margin-bottom: 20px;
+}
+
+.titleBar {
+  width: 4px;
+  height: 40px;
+  background-color: #ffc107;
+  border-radius: 2px;
+}
+
+.card {
+  background-color: transparent;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.poster {
+  border-radius: 8px;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .poster {
+  transform: scale(1.1);
+}
+
+.rating {
+  top: 12px;
+  left: 12px;
+  background-color: #ffc107;
+  color: black;
+  padding: 4px 8px;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.favIcon {
+  top: 12px;
+  right: 12px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+  transition: color 0.3s ease;
+}
+
+.favIcon:hover {
+  color: #ffc107;
+}
+
+.title {
+  font-size: 1rem;
+  line-height: 1.3;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.year {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin: 0 0 8px 0;
+  font-weight: 400;
+}
+
+.overview {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #adb5bd;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
