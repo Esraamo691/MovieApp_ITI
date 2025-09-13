@@ -1,0 +1,28 @@
+.footer {
+  background-color: #030d08; 
+}
+
+
+.textMint {
+  color: #31ac7f; 
+  font-weight: bold;
+}
+.about{
+    color: #cfd8cfa1;
+}
+
+.footerLink {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footerLink:hover {
+  color: #3eb489;
+}
+
+.footerBottom {
+  text-align: center;
+  padding: 1rem 0;
+  border-top: 1px solid #dbfcdb1f;
+}
