@@ -1,19 +1,24 @@
 import { useEffect, useState } from "react";
 import styles from "../Home/Home.module.css";
-import { useLoading } from "../../Context/LoadingContext.jsx";
+import { useLoading } from "../../Context/LoadingContext";
+import Loading from "../../Loading/Loading.jsx";
+import StarBorderIcon from '@mui/icons-material/StarBorder';
 export default function Home() {
   const [index, setIndex] = useState(0);
   const [slides, setSlides] = useState([]);
   const timeRunning = 3000;
   const timeAutoNext = 2000;
-  const { setLoading } = useLoading();
+  const { loading, setLoading } = useLoading();
+
   useEffect(() => {
     const apiKey = import.meta.env.VITE_API_KEY;
     const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`;
-    setLoading(true);
+
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
+
         const results = (data.results || []).filter(
           (m) => m.backdrop_path && m.poster_path
         );
@@ -22,7 +27,6 @@ export default function Home() {
         setLoading(false);
       })
       .catch(console.error);
-    setLoading(false);
   }, []);
 
   // Auto slide
@@ -44,15 +48,19 @@ export default function Home() {
     );
   };
 
-  // عرض كل كارت thumbnail (150px + 20px gap تقريبًا)
   const itemWidth = 170;
-  const visibleCount = 5; // عدد الكروت اللي عايزهم يبانوا مرة واحدة
+  const visibleCount = 5;
   const offset = Math.max(0, index - (visibleCount - 1));
   const translateX = -offset * itemWidth;
 
+  console.log(loading);
+
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
     <div className={styles.carousel}>
-      {/* Slides list */}
       <div className={styles.list}>
         {slides.map((movie, i) => (
           <div
@@ -65,16 +73,25 @@ export default function Home() {
             />
             <div className={styles.content}>
               <div className={styles.author}>TMDB</div>
-              <div className={styles.title}>{movie.title}</div>
+              <div className={styles.title}>
+                {movie.title.split(" ").slice(0, 4).join(" ")}
+              </div>
               <div className={styles.topic}>
                 {movie.release_date?.slice(0, 4)}
               </div>
-              <div className={styles.des}>{movie.overview}</div>
-              <div className={styles.buttons}>
-                <button className={styles.btn}>
-                  <i className=" fas fa-play"></i>
-                  WATCH</button>
-                <button>+ ADD TO FAVOURITE</button>
+              <p>
+                <StarBorderIcon className={`${styles.star}`}/>
+                {movie.vote_average.toFixed(2)}
+              </p>
+              <div className={styles.des}>
+                {movie.overview.split(" ").slice(0, 35).join(" ")}
+              </div>
+              <div className={`${styles.buttons}`}>
+                <button className={`${styles.btny}`}>
+                  <i className="fas fa-play"></i>
+                  WATCH
+                </button>
+                <button>ADD TO FAVOURITE</button>
               </div>
             </div>
           </div>

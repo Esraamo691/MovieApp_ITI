@@ -5,8 +5,9 @@ import MovieDetails from "./Components/Pages/MovieDetails/MovieDetails";
 import MovieList from "./Components/Pages/MovieList/MovieList";
 import SearchList from "./Components/Pages/SearchResult/SearchList";
 import WishList from "./Components/Pages/WishList/WishList";
-import NotFound from "./Components/NotFound";
 import TvShows from "./Components/Pages/TvShows/TvShows";
+import ScrollToTopButton from "./Components/ScrollToTop";
+import NotFound from "./Components/NotFound/NotFound";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -28,6 +29,7 @@ export default function App() {
   return (
     <>
       <RouterProvider router={router} />
+      <ScrollToTopButton />
     </>
   );
 }

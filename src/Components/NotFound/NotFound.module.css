@@ -1,0 +1,14 @@
+.body{
+    background-color:#030d08;
+}
+
+.btn{
+    background-color: #229062;
+    margin-bottom: 10px;
+    &:hover{
+        background-color: #78deb3;
+    }
+}
+.btn:focus{
+    background-color: #229062;
+}

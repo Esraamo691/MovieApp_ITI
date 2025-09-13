@@ -74,52 +74,72 @@
   font-size: 3rem;
   font-weight: bold;
   line-height: 1.3em;
-  color: #3ec4ea;
+  color: #030d08;
+  text-shadow: 2px 2px 15px #78deb3 ;
 }
 
 .topic {
   font-size: 2rem;
   font-weight: 800;
-  color: #9be4f8;
+  color: #78deb3;
+  text-shadow: 2px 2px 7px #030d08 ;
 }
 
 .des {
-  font-size: 14px;
+  font-size: 15px;
   margin: 10px 0;
+  color: rgb(219, 219, 219);
 }
 
 .buttons {
   margin-top: 20px;
   display: flex;
   gap: 20px;
-}
+  margin-bottom: 5px;
+} 
 
-.buttons button {
+button {
   border: none;
   background-color: #eee;
   letter-spacing: 3px;
   font-weight: 500;
   cursor: pointer;
 }
-.buttons .btn {
+.btny {
   font-weight: 500;
   cursor: pointer;
   border: none;
-  padding: 5px;
-  background-color: #05a5ae;
+  padding: 13px 20px;
+  background-color: #2fc485;
   transition: all 0.3s;
-  
+  font-weight: bold;
+  border-radius: 10px;
+  color: #000;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+gap: 10px;
 }
-.buttons .btn:hover {
-    box-shadow: #3ec4ea 0px 0px 25px 6px;
-  }
+
+.btny i {
+  margin-right: 10px; 
+}
+
+.btny:hover {
+  box-shadow:#2fc485  0px 0px 25px 6px !important;
+}
+
 
 .buttons button:nth-child(2) {
-  background-color: transparent;
-  border: 1px solid #fff;
+  background-color: #030d08c4;
+  border-radius: 10px;
   color: #eee;
 }
+.star{
+  color: gold;
+  font-size: 12px;
 
+}
 .thumbnailItem {
   width: 150px;
   height: 220px;
@@ -149,14 +169,14 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
-  overflow: hidden; /* نخفي أي حاجة خارجة */
-  width: 80%; /* العرض اللي يظهر فيه 5 أو 6 كروت بس */
+  overflow: hidden; 
+  width: 80%; 
 }
 
 .thumbnailTrack {
   display: flex;
   gap: 20px;
-  transition: transform 0.5s ease; /* انميشن الحركة */
+  transition: transform 0.5s ease; 
 }
 
 /* Arrows */
@@ -210,7 +230,7 @@
   }
 }
 
-/* Responsive */
+
 @media screen and (max-width: 768px) {
   .content {
     padding-right: 0;

@@ -1,39 +1,28 @@
-.loader {
-  box-sizing: border-box;
-  position: relative;
-  width: 48px;
-  height: 48px;
-  animation: spin 1s linear infinite;
-}
-.loader:after,
-.loader:before {
-  content: "";
-  width: 24px;
-  height: 24px;
-  position: absolute;
-  border-radius: 50%;
-  background: rgb(50, 158, 193);
-  animation: spin 1s linear infinite;
-  transform-origin: 0px 100%;
-}
-.loader:before {
-  transform-origin: 0 50%;
-  background: #012b3d;
-}
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
 .body {
-  background: #0f0e11;
+  background: #030d08;
   padding-block: 100px;
+  min-height: 100vh;
 }
-
+.pop{
+  background-color: #46B47F;
+  width: fit-content;
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  border-radius: 10px;
+  padding-inline: 1px;
+  box-shadow: #060607 0px 0px 15px 1px inset;
+  color: #030d08;
+}
+.star{
+  color: #030d08;
+  font-size: 10px;
+  
+}
 .card {
   background-color: #060607;
   border-radius: 10px;
-  box-shadow: 1px 1px 5px #0f494d, 3px 5px 10px rgb(93, 182, 207);
+  box-shadow: 1px 1px 8px #8db6d9;
   color: #ffffffbe;
   transition: all 0.5s;
   position: relative;
@@ -44,9 +33,13 @@
     border-radius: 10px;
   }
 }
-
+.par{
+  font-size: xx-large;
+  color: #46B47F;
+  font-weight: bold;
+}
 .icon {
-  background-color: rgb(0, 0, 0,0.5);
+  background-color: rgb(0, 0, 0, 0.5);
   position: absolute;
   top: 15px;
   right: 10px;
@@ -54,10 +47,26 @@
   height: 40px;
   border-radius: 50%;
   box-shadow: 1px 1px 6px #5db6cf;
-  
+
   i {
-    color: #5db6cf;
-    font-size: x-large;
+    color: #78deb3;
+    font-size: larger;
     cursor: pointer;
   }
+}
+.not {
+  color: #cdf3e3;
+  font-size: x-larg;
+}
+
+.pagination :global(.MuiPaginationItem-root) {
+  color: #daf6ea;
+}
+.pagination :global(.MuiPaginationItem-root:hover){
+  background-color: #165c3e;
+}
+.pagination :global(.Mui-selected){
+background-color: #78deb3 !important;
+color: #030d08 !important;
+box-shadow: 1px 1px 7px #78deb3 !important;
 }

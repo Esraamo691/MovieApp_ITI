@@ -13,7 +13,7 @@
 }
 
 .logo {
-  color: #00ffc6;
+  color: #4ad399;
   text-decoration: none;
   font-size: 18px;
   font-weight: bold;
@@ -25,12 +25,12 @@
 
 /* Active link */
 .activeLink {
-  color:white !important;
+  color:#030d08 !important;
   font-weight: bold;
+
   border-radius: 10px;
-  /* background-color: rgba(0,255,198,0.1); */
    background-size: 200%;
-    background-image: linear-gradient(to right, #016e57  0%, #00ffc61a 51%, #016e57 100%);
+    background-image: linear-gradient(to right, #016e57  0%, #8DB6D9 51%, #6DD19C 100%);
   transition: all 0.3s;
   &:hover{
      background-position: -100% center;
@@ -40,18 +40,20 @@
   box-shadow: none;
 }
 .btn {
-  border: 1px solid #02ad88;
-  color: #02ad88;
+  border: 1px solid #1c7650 !important;
+  color: #4ad399;
+  font-weight: bolder;
 }
 .btn:hover {
-  background-color: #02ad88;
-  color: black;
+  background-color: #196947;
+  color: #d4f4e7;
+  font-weight: bolder;
 }
 
 .formInput {
   background-color: transparent;
-  border: 1px solid #02ad88;
-  color: #02ad88;
+  border: 1px solid #1c7650;
+  color: #4ad399;
 }
 .formInput::placeholder {
   color: #a8b3c1;
