@@ -1,12 +1,17 @@
 import { useEffect, useState } from "react";
 import styles from "../Home/Home.module.css";
 import { useLoading } from "../../Context/LoadingContext.jsx";
+//import wishllist context
+import { useWishlist } from "../../Context/WishListContext.jsx";
+
 export default function Home() {
   const [index, setIndex] = useState(0);
   const [slides, setSlides] = useState([]);
   const timeRunning = 3000;
   const timeAutoNext = 2000;
   const { setLoading } = useLoading();
+  const { wishlist, toggleWishlist } = useWishlist(); //wishlist
+
   useEffect(() => {
     const apiKey = import.meta.env.VITE_API_KEY;
     const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`;
@@ -74,7 +79,12 @@ export default function Home() {
                 <button className={styles.btn}>
                   <i className=" fas fa-play"></i>
                   WATCH</button>
-                <button>+ ADD TO FAVOURITE</button>
+                <button
+                  onClick={() => toggleWishlist(movie)}
+                  className={styles.btnFav}
+                  >
+                   {wishlist.some(m => m.id === movie.id) ? " - REMOVE FROM FAVOURITE" : " + ADD TO FAVOURITE"}
+                   </button>
               </div>
             </div>
           </div>

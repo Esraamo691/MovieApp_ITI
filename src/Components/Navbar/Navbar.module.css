@@ -66,3 +66,15 @@
   color: #a8b3c1;
   box-shadow: none;
 }
+.favBadge {
+  font-size: 0.85rem;       
+  font-weight: bold;       
+  color: #f2fcff;           
+  background-color: #02ad88; 
+  border-radius: 10px;      
+  padding: 0.20em 0.6em;  
+  display: inline-block;
+  min-width: 20px;
+  text-align: center;
+}
+

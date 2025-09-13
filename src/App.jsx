@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+import React from 'react'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./Components/Layout";
 import Home from "./Components/Pages/Home/Home";
@@ -8,10 +8,8 @@ import SearchList from "./Components/Pages/SearchResult/SearchList";
 import WishList from "./Components/Pages/WishList/WishList";
 import NotFound from "./Components/NotFound";
 import TvShows from "./Components/Pages/TvShows/TvShows";
-=======
-import React from 'react'
-import WishList from "./Components/Pages/WishList/WishList";
->>>>>>> af47a75 (save my progress)
+//import context for wishlist
+import { WishlistProvider } from "./Components/Context/WishListContext.jsx";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -31,15 +29,8 @@ export default function App() {
   ]);
 
   return (
-<<<<<<< HEAD
-    <>
+    <WishlistProvider>
       <RouterProvider router={router} />
-    </>
+    </WishlistProvider>
   );
-=======
-    <div>
-      <WishList />
-    </div>
-  )
->>>>>>> af47a75 (save my progress)
 }

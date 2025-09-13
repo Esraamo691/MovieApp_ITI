@@ -1,0 +1,36 @@
+.emptyWishlistContainer {
+  background-color: #0b0b10;
+  min-height: 100vh;         
+}
+
+.icon {
+  width: 150px;
+  height: 150px;
+  filter: brightness(0) saturate(100%) invert(33%) sepia(7%) saturate(828%) hue-rotate(176deg) brightness(92%) contrast(86%);
+  animation: icon 2s infinite;
+}
+@keyframes icon{
+  0%, 100% {
+    opacity:1;
+  }
+  50%{
+    opacity:0.5;
+  }
+}
+
+.emptyText {
+  margin-top: 12px;
+  font-size: 1.5rem; 
+  font-weight: 500;
+  color: #d1d5dc; 
+  animation: emptyText 2s infinite;
+}
+@keyframes emptyText{
+  0%, 100% {
+    opacity:1;
+  }
+  50%{
+    opacity:0.5;
+  }
+}
+

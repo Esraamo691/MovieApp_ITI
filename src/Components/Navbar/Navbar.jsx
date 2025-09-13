@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import styles from "../Navbar/Navbar.module.css";
+import { useWishlist } from "../Context/WishListContext.jsx"; //import wishlist
 
 export default function Navbar() {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
+
+  //wishlist
+  const { wishlist } = useWishlist();
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -33,7 +37,10 @@ export default function Navbar() {
               <NavLink to="/tv-show" className={({ isActive }) => isActive ? `nav-link ${styles.activeLink}` : "nav-link"}>TV Shows</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/watch-list" className={({ isActive }) => isActive ? `nav-link ${styles.activeLink}` : "nav-link"}>Favourites</NavLink>
+              <NavLink to="/watch-list" className={({ isActive }) => isActive ? `nav-link  d-flex align-items-center ${styles.activeLink}` : "nav-link d-flex align-items-center"}>
+              {/*lenght of wishlist*/ }
+              Favourites  <span className={`${styles.favBadge} ms-2`}>{wishlist.length}</span>
+              </NavLink>
             </li>
           </ul>
 

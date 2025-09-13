@@ -1,97 +1,72 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
+import { useWishlist } from "../../Context/WishListContext.jsx";
+import EmptyWishList from "./EmptyWishList.jsx";
+import { FaStar } from "react-icons/fa";
 import styles from "./wishlist.module.css";
-import { Button } from "react-bootstrap";
-import { FaHeart, FaStar } from "react-icons/fa";
-
-const posterUrls = [
-  "https://image.tmdb.org/t/p/w500/qAZ0pzat24kLdO3o8ejmbLxyOac.jpg",
-  "https://image.tmdb.org/t/p/w500/uGBVj3bEbCoZbDjjl9wTxcygko1.jpg",
-  "https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg",
-  "https://image.tmdb.org/t/p/w500/AtsgWhDnHTq68L0lLsUrCnM7TjG.jpg",
-];
-
-const generateMovies = (count) => {
-  const movies = [];
-  for (let i = 0; i < count; i++) {
-    movies.push({
-      id: i + 1,
-      title: `Movie ${i + 1}`,
-      date: `Jan ${i + 1}, 2023`,
-      rating: Math.floor(Math.random() * 5) + 1,
-      votes: Math.floor(Math.random() * 10000),
-      description: `This is the description for Movie ${i + 1}.`,
-      poster: posterUrls[i % posterUrls.length],
-    });
-  }
-  return movies;
-};
 
 function WishList() {
-  const [movies, setMovies] = useState(generateMovies(12));
-  const [favorites, setFavorites] = useState([]);
-  const [visible, setVisible] = useState([]); 
+  const { wishlist, toggleWishlist } = useWishlist();
+  const [hoveredId, setHoveredId] = useState(null);
 
-  useEffect(() => {
-    movies.forEach((movie, i) => {
-      setTimeout(() => {
-        setVisible((prev) => [...prev, movie.id]);
-      }, i * 150);
-    });
-  }, [movies]);
-
-  const toggleFavorite = (id) => {
-    setFavorites((prev) =>
-      prev.includes(id) ? prev.filter((fid) => fid !== id) : [...prev, id]
-    );
-  };
+  if (wishlist.length === 0) return <EmptyWishList />;
 
   return (
     <div className={styles.container}>
       <div className={styles.titleWrapper}>
-        <h2> Watch List </h2>
+        <h2>
+          <i className="fa-solid fa-heart"></i> My Favourite{" "}
+          <span>[{wishlist.length}]</span>
+        </h2>
       </div>
 
       <div className={styles.cardsContainer}>
-        {movies.map((movie) => (
+        {wishlist.map((movie, i) => (
           <div
             key={movie.id}
             className={`${styles.card} ${
-              visible.includes(movie.id) ? styles.show : ""
+              hoveredId && hoveredId !== movie.id ? styles.blur : ""
             }`}
+            onMouseEnter={() => setHoveredId(movie.id)}
+            onMouseLeave={() => setHoveredId(null)}
+            style={{ animationDelay: `${i * 0.15}s` }}
           >
             <div className={styles.posterWrapper}>
-              <img src={movie.poster} alt={movie.title} className={styles.poster} />
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt={movie.title}
+                className={styles.poster}
+              />
+              <div
+                className={styles.icon}
+                onClick={() => toggleWishlist(movie)}
+              >
+                <i className="fas fa-heart"></i>
+              </div>
             </div>
 
             <div className={styles.details}>
-              <div className={styles.cardHeader}>
-                <h3 className={styles.movieTitle}>{movie.title}</h3>
-                <FaHeart
-                  className={`${styles.heartIcon} ${
-                    favorites.includes(movie.id) ? styles.active : ""
-                  }`}
-                  onClick={() => toggleFavorite(movie.id)}
-                />
-              </div>
-
-              <p className={styles.date}>{movie.date}</p>
+              <h3 className={styles.movieTitle}>{movie.title}</h3>
+              <p className={styles.date}>
+                {movie.release_date?.split("-")[0]}
+              </p>
 
               <div className={styles.rating}>
-                {[...Array(5)].map((_, i) => (
+                {[...Array(5)].map((_, idx) => (
                   <FaStar
-                    key={i}
+                    key={idx}
                     className={
-                      i < movie.rating ? styles.starFilled : styles.starEmpty
+                      idx < Math.round(movie.vote_average / 2)
+                        ? styles.starFilled
+                        : styles.starEmpty
                     }
                   />
                 ))}
-                <span className={styles.votes}>{movie.votes}</span>
+                <span className={styles.ratingNumber}>
+                  {movie.vote_average.toFixed(1)}/10
+                </span>
               </div>
 
-              <p className={styles.desc}>{movie.description}</p>
-              <Button className={styles.btnRemove} variant="light" size="sm">
-                Remove
-              </Button>
+              <p className={styles.desc}>{movie.overview}</p>
             </div>
           </div>
         ))}

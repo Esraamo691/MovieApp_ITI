@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
 import style from "../MovieList/MovieList.module.css";
 import { useLoading } from "../../Context/LoadingContext.jsx";
+//wishlist
+import { useWishlist } from "../../Context/WishListContext.jsx";
 
 export default function MovieList() {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const { setLoading } = useLoading();
+
+  // wishlist
+  const { wishlist, toggleWishlist } = useWishlist();
 
   useEffect(() => {
     const apiKey = import.meta.env.VITE_API_KEY;
@@ -76,9 +81,16 @@ export default function MovieList() {
                       : movie.overview}
                   </p>
                 </div>
-                <div className={`${style.icon}  d-flex justify-content-center align-items-center`}>
-                    <i className="far fa-heart"></i>
+                
+                   {/*add or remove from wishlist*/ }
+                <div 
+                  className={`${style.icon} d-flex justify-content-center align-items-center`}
+                  onClick={() =>toggleWishlist(movie)}
+                >
+                 <i className={`fa${wishlist.some(m => m.id === movie.id) ? 's' : 'r'} fa-heart`}></i>
                   </div>
+
+                
               </div>
             </div>
           ))}
