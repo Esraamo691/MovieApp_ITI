@@ -1,13 +1,225 @@
-/* .myToast {
-  background-color: linear-gradient(135deg,#5656b9,#784ba0,#120924) !important;
-  color: #0fbea9 !important;
+.movieDetails {
+  position: relative;
+  min-height: 100vh;
+  color: white;
+  overflow-x: hidden;
 }
 
-
-:global(.Toastify__close-button) {
-  color: #ffcc00 !important;
+.movieDetails::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: var(--backdrop-url);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(3px);
+  z-index: -1;
 }
 
-:global(.Toastify__progress-bar) {
-  background-color:  aqua !important;
-} */
+.movieDetails::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 10;
+  padding: 0 15px;
+  padding-top: 100px;
+}
+
+.backButtonContainer {
+  position: relative;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.py5 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.colMd6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.display4 {
+  font-size: 3.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+  font-family: Georgia, serif;
+}
+
+.textMuted {
+  color: #6c757d !important;
+}
+
+.seasonText {
+  font-family: Arial, sans-serif;
+}
+
+.mb2 {
+  margin-bottom: 0.5rem;
+}
+
+.ratingText {
+  font-family: Arial, sans-serif;
+  margin-right: 0.5rem;
+}
+
+.mb3 {
+  margin-bottom: 1rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+  color: #fff;
+}
+
+.bgSecondary {
+  background-color: #6c757d !important;
+}
+
+.me2 {
+  margin-right: 0.5rem;
+}
+
+.mb4 {
+  margin-bottom: 1.5rem;
+}
+
+.dFlex {
+  display: flex;
+}
+
+.gap2 {
+  gap: 0.5rem;
+}
+
+.btnFilled {
+  border: 1px solid #02ad88;
+  color: white;
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  background-size: 200%;
+  background-image: linear-gradient(to right, #016e57 0%, #00ffc61a 51%, #016e57 100%);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  z-index: 101;
+}
+
+.btnFilled:hover {
+  background-position: -100% center;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(1, 60, 46, 0.25);
+  color: white;
+}
+
+.loading {
+  color: #fff;
+  text-align: center;
+  padding: 40px 0;
+}
+
+.recommendedSection {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding-bottom: 1rem;
+  margin-top: -100px;
+  padding-top: 90px;
+}
+
+.textWhite {
+  color: #fff !important;
+}
+
+.sliderCard {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  padding: 0 5px;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  width: auto;
+  cursor: pointer;
+  margin: 0;
+  text-decoration: none !important;
+  color: inherit;
+}
+
+.sliderCard:hover {
+  transform: scaleY(1.1) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 20px rgba(64, 224, 208, 0.6);
+}
+
+.sliderCard img {
+  height: 400px;
+  object-fit: cover;
+  width: 100%;
+  transition: height 0.3s ease;
+  border-radius: 20px;
+}
+
+.imgFluid {
+  max-width: 100%;
+  height: 300px;
+  object-fit: cover;
+  width: 90%;
+  display: block;
+  margin: 0;
+  margin-top: -70px;
+}
+
+.rounded {
+  border-radius: 0.55rem;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.mt2 {
+  margin-top: 0.5rem;
+}
+
+.py4 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.description {
+  margin-top: 2rem;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}

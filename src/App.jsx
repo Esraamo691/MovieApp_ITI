@@ -15,19 +15,15 @@ export default function App() {
       element: <Layout />,
       children: [
         { index: true, element: <Home /> },
-        { path: "/details", element: <MovieDetails /> },
-        { path: "/movies", element: <MovieList /> },
-        { path: "/search", element: <SearchList /> },
-        { path: "/watch-list", element: <WishList /> },
-        { path: "/tv-show", element: <TvShows/> },
+        { path: "movies", element: <MovieList /> },
+        { path: "movie/:id", element: <MovieDetails /> }, // صفحة تفاصيل الفيلم
+        { path: "search", element: <SearchList /> },
+        { path: "watch-list", element: <WishList /> },
+        { path: "tv-show", element: <TvShows /> },
         { path: "*", element: <NotFound /> },
       ],
     },
   ]);
 
-  return (
-    <>
-      <RouterProvider router={router} />
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
