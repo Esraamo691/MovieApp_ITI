@@ -16,7 +16,7 @@ export default function App() {
       element: <Layout />,
       children: [
         { index: true, element: <Home /> },
-        { path: "/details", element: <MovieDetails /> },
+        { path: "/movies", element: <MovieList /> },
         { path: "movie/:id", element: <MovieDetails /> },
         { path: "/search", element: <SearchList /> },
         { path: "/watch-list", element: <WishList /> },

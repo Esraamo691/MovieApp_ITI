@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import style from "../MovieList/MovieList.module.css";
 import { Pagination } from "@mui/material";
 import { useLoading } from "../../Context/LoadingContext";
