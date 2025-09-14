@@ -85,7 +85,7 @@ function TvShows() {
 
         {/* Pagination */}
         <nav aria-label="Page navigation example" className="mt-5">
-          <ul className="pagination justify-content-center">
+          <ul className={`pagination justify-content-center ${style.pagination}`}>
             {/* Previous */}
             <li className={`page-item ${page === 1 ? "disabled" : ""}`}>
               <button

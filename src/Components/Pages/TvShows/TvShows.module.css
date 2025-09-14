@@ -34,4 +34,60 @@
     cursor: pointer;
   }
 }
+
+/* Pagination Styling */
+.pagination {
+  .page-item {
+    margin: 0 6px;
+    
+    .page-link {
+      background-color: #2d3748;
+      border: none;
+      color: #e2e8f0;
+      padding: 0;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      line-height: 1;
+      
+      &:hover {
+        background-color: #4a5568;
+        color: #ffffff;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+      
+      &:focus {
+        box-shadow: 0 0 0 2px rgba(93, 182, 207, 0.3);
+        outline: none;
+      }
+    }
+    
+    &.active .page-link {
+      background-color: #5db6cf;
+      color: #000000;
+      font-weight: 600;
+    }
+    
+    &.disabled .page-link {
+      background-color: #1a202c;
+      color: #718096;
+      cursor: not-allowed;
+      opacity: 0.6;
+      
+      &:hover {
+        background-color: #1a202c;
+        transform: none;
+        box-shadow: none;
+      }
+    }
+  }
+}
   
