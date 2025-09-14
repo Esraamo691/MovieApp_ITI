@@ -23,7 +23,7 @@
   background-color: #060607;
   border-radius: 10px;
   box-shadow: 1px 1px 8px #8db6d9;
-  color: #ffffffbe;
+  color: #ffffffbe !important;
   transition: all 0.5s;
   position: relative;
   &:hover {

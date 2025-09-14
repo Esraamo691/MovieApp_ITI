@@ -150,10 +150,10 @@ export default function MovieList() {
                   <i className="far fa-heart"></i>
                 </div>
 
-                {/* الكارد كله لينك */}
+                
                 <Link
                   to={`/movie/${movie.id}`}
-                  className="text-decoration-none d-block h-100"
+                  className="text-decoration-none d-block text-reset h-100"
                 >
                   <img
                     src={

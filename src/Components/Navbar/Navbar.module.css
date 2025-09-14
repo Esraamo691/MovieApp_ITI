@@ -30,8 +30,7 @@
 
   border-radius: 10px;
    background-size: 200%;
-    /* background-image: linear-gradient(to right, #016e57  0%, #8DB6D9 51%, #6DD19C 100%); */
-    background-image: linear-gradient(to right, #016e57  0%, #00ffc61a 51%, #016e57 100%);
+    background-image: linear-gradient(to right, #016e57  0%, #8DB6D9 51%, #6DD19C 100%);
   transition: all 0.3s;
   &:hover{
      background-position: -100% center;
