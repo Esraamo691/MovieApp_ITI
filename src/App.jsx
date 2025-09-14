@@ -8,7 +8,10 @@ import WishList from "./Components/Pages/WishList/WishList";
 import TvShows from "./Components/Pages/TvShows/TvShows";
 import ScrollToTopButton from "./Components/ScrollToTop";
 import NotFound from "./Components/NotFound/NotFound";
-
+import { WishlistProvider } from "./Components/Context/WishListContext.jsx";
+import TvShowDetails from "./Components/Pages/MovieDetails/TvShowDetails.jsx";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export default function App() {
   const router = createBrowserRouter([
     {
@@ -19,8 +22,9 @@ export default function App() {
         { path: "/movies", element: <MovieList /> },
         { path: "movie/:id", element: <MovieDetails /> },
         { path: "/search", element: <SearchList /> },
+        { path: "/tv/:id", element: <TvShowDetails /> },
         { path: "/watch-list", element: <WishList /> },
-        { path: "/tv-show", element: <TvShows/> },
+        { path: "/tv-show", element: <TvShows /> },
         { path: "*", element: <NotFound /> },
       ],
     },
@@ -28,8 +32,22 @@ export default function App() {
 
   return (
     <>
-      <RouterProvider router={router} />
-      <ScrollToTopButton />
+      <WishlistProvider>
+        <RouterProvider router={router} />
+        <ScrollToTopButton />
+        <ToastContainer 
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
+      </WishlistProvider>
     </>
   );
 }

@@ -5,14 +5,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./movie.module.css";
+import { useLoading } from "../../Context/LoadingContext";
+import Loading from "../../Loading/Loading.jsx"; // نفس الـ component اللي بتستعمله فوق
 
 const MovieDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [currentMovie, setCurrentMovie] = useState(null);
   const [recommendedMovies, setRecommendedMovies] = useState([]);
-  const [loading, setLoading] = useState(true);
 
+  const { loading, setLoading } = useLoading(); // ✅ بدال الـ useState
   const API_KEY = import.meta.env.VITE_API_KEY;
 
   const sliderSettings = useMemo(
@@ -24,8 +26,6 @@ const MovieDetails = () => {
       slidesToScroll: 1,
       autoplay: true,
       autoplaySpeed: 2000,
-      centerMode: false,
-      variableWidth: false,
       responsive: [
         { breakpoint: 1024, settings: { slidesToShow: 3 } },
         { breakpoint: 768, settings: { slidesToShow: 2 } },
@@ -46,93 +46,58 @@ const MovieDetails = () => {
     );
   };
 
-  const fetchMovieDetails = (movieId) => {
-    setLoading(true);
-    fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Movie details fetch failed: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        const movieData = {
-          id: data.id,
-          title: data.title || "Unknown",
-          season: data.release_date
-            ? `Released ${new Date(data.release_date).getFullYear()}`
-            : "Unknown Release",
-          image: data.poster_path
-            ? `https://image.tmdb.org/t/p/w500${data.poster_path}`
-            : "https://via.placeholder.com/400x600?text=No+Image",
-          backdrop: data.backdrop_path
-            ? `https://image.tmdb.org/t/p/w1280${data.backdrop_path}`
-            : "https://via.placeholder.com/1280x720?text=No+Backdrop",
-          rating: getStarRating(data.vote_average),
-          genres: data.genres ? data.genres.map((g) => g.name) : ["Drama"],
-          description: data.overview || "No description available.",
-        };
-        setCurrentMovie(movieData);
-      })
-      .catch((err) => {
-        console.error(err);
-        setCurrentMovie(null);
-      })
-      .finally(() => {
-        setLoading(false);
+  const fetchMovieDetails = async (movieId) => {
+    setLoading(true); // ✅
+    try {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`
+      );
+      if (!response.ok) throw new Error("Movie details fetch failed");
+      const data = await response.json();
+      setCurrentMovie({
+        id: data.id,
+        title: data.title || "Unknown",
+        season: data.release_date
+          ? `Released ${new Date(data.release_date).getFullYear()}`
+          : "Unknown Release",
+        image: data.poster_path
+          ? `https://image.tmdb.org/t/p/w500${data.poster_path}`
+          : "https://via.placeholder.com/400x600?text=No+Image",
+        backdrop: data.backdrop_path
+          ? `https://image.tmdb.org/t/p/w1280${data.backdrop_path}`
+          : "https://via.placeholder.com/1280x720?text=No+Backdrop",
+        rating: getStarRating(data.vote_average),
+        genres: data.genres ? data.genres.map((g) => g.name) : ["Drama"],
+        description: data.overview || "No description available.",
       });
+    } catch (err) {
+      console.error(err);
+      setCurrentMovie(null);
+    } finally {
+      setLoading(false); // ✅
+    }
   };
 
-  const fetchRecommendedMovies = (movieId) => {
-    fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${API_KEY}`
-    )
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Recommendations fetch failed: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((results) => {
-        const movies = (results.results || []).slice(0, 8).map((m) => ({
+  const fetchRecommendedMovies = async (movieId) => {
+    try {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${API_KEY}`
+      );
+      if (!response.ok) throw new Error("Recommendations fetch failed");
+      const results = await response.json();
+      setRecommendedMovies(
+        (results.results || []).slice(0, 8).map((m) => ({
           id: m.id,
           title: m.title,
           image: m.poster_path
             ? `https://image.tmdb.org/t/p/w200${m.poster_path}`
             : "https://via.placeholder.com/200x300?text=No+Image",
-        }));
-        setRecommendedMovies(
-          movies.length > 0
-            ? movies
-            : [
-                {
-                  id: 550,
-                  title: "Fight Club",
-                  image: "https://via.placeholder.com/200x300?text=Fight+Club",
-                },
-                {
-                  id: 603,
-                  title: "The Matrix",
-                  image: "https://via.placeholder.com/200x300?text=The+Matrix",
-                },
-              ]
-        );
-      })
-      .catch((err) => {
-        console.error(err);
-        setRecommendedMovies([
-          {
-            id: 550,
-            title: "Fight Club",
-            image: "https://via.placeholder.com/200x300?text=Fight+Club",
-          },
-          {
-            id: 603,
-            title: "The Matrix",
-            image: "https://via.placeholder.com/200x300?text=The+Matrix",
-          },
-        ]);
-      });
+        }))
+      );
+    } catch (err) {
+      console.error(err);
+      setRecommendedMovies([]);
+    }
   };
 
   useEffect(() => {
@@ -144,13 +109,7 @@ const MovieDetails = () => {
     fetchRecommendedMovies(id);
   }, [id, navigate]);
 
-  if (loading) {
-    return (
-      <div className={styles.loading}>
-        Loading movie details for ID: {id}...
-      </div>
-    );
-  }
+  if (loading) return <Loading />; 
 
   if (!currentMovie) {
     return (

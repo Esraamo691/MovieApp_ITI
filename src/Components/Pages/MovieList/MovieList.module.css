@@ -1,28 +1,29 @@
 .body {
-  background: #030d08;
+  /* background: #030d08; */
+  background: linear-gradient(135deg, #0d1117, #0a191f, #0d1117);
   padding-block: 100px;
   min-height: 100vh;
 }
 .pop{
-  background-color: #46B47F;
+  background-color: #3179b8;
   width: fit-content;
   position: absolute;
   top: 15px;
   left: 10px;
   border-radius: 10px;
-  padding-inline: 1px;
-  box-shadow: #060607 0px 0px 15px 1px inset;
-  color: #030d08;
+  padding-inline: 2px;
+  box-shadow: #0d001e 0px 0px 15px 1px inset;
+  color: #0d001e;
 }
 .star{
-  color: #030d08;
+  color: #0d001e;
   font-size: 10px;
   
 }
 .card {
   background-color: #060607;
   border-radius: 10px;
-  box-shadow: 1px 1px 8px #8db6d9;
+  box-shadow: 1px 1px 8px #2a6199;
   color: #ffffffbe !important;
   transition: all 0.5s;
   position: relative;
@@ -35,8 +36,13 @@
 }
 .par{
   font-size: xx-large;
-  color: #46B47F;
+  color: #c9e7ec;
+  text-shadow: 2px 2px 10px #0d001e ;
   font-weight: bold;
+  font-family: "Tagesschrift", sans-serif !important;
+}
+.tite{
+  font-family: "Tagesschrift", sans-serif !important;
 }
 .icon {
   background-color: rgb(0, 0, 0, 0.5);
@@ -46,10 +52,10 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  box-shadow: 1px 1px 6px #5db6cf;
+  box-shadow: 1px 1px 6px #3179b8;
 
   i {
-    color: #78deb3;
+    color: #3179b8;
     font-size: larger;
     cursor: pointer;
   }
@@ -59,14 +65,3 @@
   font-size: x-larg;
 }
 
-.pagination :global(.MuiPaginationItem-root) {
-  color: #daf6ea;
-}
-.pagination :global(.MuiPaginationItem-root:hover){
-  background-color: #165c3e;
-}
-.pagination :global(.Mui-selected){
-background-color: #78deb3 !important;
-color: #030d08 !important;
-box-shadow: 1px 1px 7px #78deb3 !important;
-}

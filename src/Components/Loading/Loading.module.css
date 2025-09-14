@@ -2,14 +2,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #030d08;
-
+background: linear-gradient(135deg, #0f131a, #0f2229, #000000);
   min-height: 100vh;
 }
 
-
-
-  .loader {
+.loader {
   width: 48px;
   height: 48px;
   position: relative;
@@ -23,14 +20,14 @@
   width: 48em;
   height: 48em;
   background-image:
-    radial-gradient(circle 10px, #36ce8e 100%, transparent 0),
-    radial-gradient(circle 10px, #36ce8e 100%, transparent 0),
-    radial-gradient(circle 10px, #36ce8e 100%, transparent 0),
-    radial-gradient(circle 10px, #36ce8e 100%, transparent 0),
-    radial-gradient(circle 10px, #78deb3 100%, transparent 0),
-    radial-gradient(circle 10px, #78deb3 100%, transparent 0),
-    radial-gradient(circle 10px, #78deb3 100%, transparent 0),
-    radial-gradient(circle 10px, #78deb3 100%, transparent 0);
+    radial-gradient(circle 10px, #FFF 100%, transparent 0),
+    radial-gradient(circle 10px, #FFF 100%, transparent 0),
+    radial-gradient(circle 10px, #FFF 100%, transparent 0),
+    radial-gradient(circle 10px, #FFF 100%, transparent 0),
+    radial-gradient(circle 10px, #FFF 100%, transparent 0),
+    radial-gradient(circle 10px, #FFF 100%, transparent 0),
+    radial-gradient(circle 10px, #FFF 100%, transparent 0),
+    radial-gradient(circle 10px, #FFF 100%, transparent 0);
   background-position: 0em -18em, 0em 18em, 18em 0em, -18em 0em,
                        13em -13em, -13em -13em, 13em 13em, -13em 13em;
     background-repeat: no-repeat;
@@ -40,7 +37,7 @@
 }
 .loader::after {
   font-size: 1px;
-  background: #229062;
+  background: #fff;
   animation: bounce 1s ease-in infinite;
 }
 

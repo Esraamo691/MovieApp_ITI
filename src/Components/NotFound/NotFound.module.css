@@ -1,12 +1,13 @@
 .body{
-    background-color:#030d08;
+    background: linear-gradient(135deg, #0f131a, #0f2229, #000000);
 }
 
 .btn{
-    background-color: #229062;
+    background-color: #65c4c9;
     margin-bottom: 10px;
     &:hover{
-        background-color: #78deb3;
+        background-color: #3e77b6;
+        color: aliceblue;
     }
 }
 .btn:focus{

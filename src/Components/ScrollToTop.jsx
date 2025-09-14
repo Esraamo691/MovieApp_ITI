@@ -63,14 +63,14 @@ export default function ScrollToTopButton() {
             position: "fixed",
             bottom: "30px",
             right: "30px",
-            backgroundColor: "#229062",
+            backgroundColor: "#3fa9f5",
             color: "white",
             border: "none",
             borderRadius: "50%",
             width: "50px",
             height: "50px",
             cursor: "pointer",
-            boxShadow: "1px 1px 20px #030d08",
+            boxShadow: "1px 1px 20px #14183d",
             zIndex: 1000,
           }}
         >

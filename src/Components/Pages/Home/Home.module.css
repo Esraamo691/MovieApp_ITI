@@ -33,13 +33,14 @@
   opacity: 0;
   transition: opacity 1s ease;
   z-index: 0;
+  font-family: "Tagesschrift", sans-serif !important;
 }
 
 .item::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(50deg, #ffffff2d, #0d1117cf);
+  background: linear-gradient(to left,#00405da8,#95b5e05f);
 }
 .itemActive {
   opacity: 1;
@@ -74,8 +75,8 @@
   font-size: 3rem;
   font-weight: bold;
   line-height: 1.3em;
-  color: #030d08;
-  text-shadow: 2px 2px 15px #78deb3 ;
+  color: #0d001e;
+  text-shadow: 2px 2px 15px #3891d6 ;
 }
 
 .topic {

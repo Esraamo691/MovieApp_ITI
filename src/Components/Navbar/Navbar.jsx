@@ -4,11 +4,11 @@ import MovieIcon from "@mui/icons-material/Movie";
 import TvIcon from "@mui/icons-material/Tv";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import styles from "../Navbar/Navbar.module.css";
-
+import { useWishlist } from "../Context/WishListContext.jsx"; //import wishlist
 export default function Navbar() {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
-
+  const { wishlist } = useWishlist();
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchTerm.trim() !== "") {
@@ -70,12 +70,15 @@ export default function Navbar() {
                 to="/watch-list"
                 className={({ isActive }) =>
                   isActive
-                    ? `nav-link d-flex align-items-center gap-1 ${styles.activeLink}`
-                    : "nav-link d-flex align-items-center gap-1"
+                    ? `nav-link  d-flex align-items-center position-relative ${styles.activeLink}`
+                    : "nav-link d-flex align-items-center position-relative "
                 }
               >
-                <FavoriteIcon fontSize="small" />
-                <span>Favourites</span>
+                {/*lenght of wishlist*/}
+                Favourites{" "}
+                <span className={`${styles.favBadge} ms-2`}>
+                  {wishlist.length}
+                </span>
               </NavLink>
             </li>
           </ul>
@@ -97,4 +100,3 @@ export default function Navbar() {
     </nav>
   );
 }
-

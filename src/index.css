@@ -1,9 +1,6 @@
-body {
-  font-family: 'Tagesschrift', sans-serif;
-}
 
 
 * {
-    scrollbar-width: thin;
-    scrollbar-color: #78deb3 #0d111c;
+  scrollbar-width: thin;
+  scrollbar-color: #22487a #14183d;
 }

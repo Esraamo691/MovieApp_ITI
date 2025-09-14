@@ -1,0 +1,32 @@
+.footer {
+  background-color: black;
+ 
+}
+
+
+.textMint {
+  color: #65C4C9; 
+  font-weight: bold;
+  font-family: "Tagesschrift", sans-serif !important;
+}
+.about{
+    color: #cfd8cfa1;
+}
+
+.footerLink {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+  font-family:Verdana, Geneva, Tahoma, sans-serif !important;
+}
+
+.footerLink:hover {
+  color: #65C4C9;
+}
+
+.footerBottom {
+  text-align: center;
+  padding: 1rem 0;
+  border-top: 1px solid #dbfcdb1f;
+  color: rgb(226, 226, 221);
+}
