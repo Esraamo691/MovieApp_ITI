@@ -1,23 +1,25 @@
 .body {
   /* background: #030d08; */
   background: linear-gradient(135deg, #0d1117, #0a191f, #0d1117);
-  padding-block: 100px;
+  /* padding-block: 100px; */
+  padding:2%;
+  padding-top:6%;
   min-height: 100vh;
 }
 .pop{
-  background-color: #3179b8;
+  background-color: #3179b885;
   width: fit-content;
   position: absolute;
   top: 15px;
   left: 10px;
-  border-radius: 10px;
-  padding-inline: 2px;
+  border-radius: 60px;
   box-shadow: #0d001e 0px 0px 15px 1px inset;
-  color: #0d001e;
+  color: #dedfee;
+  padding: 5px;
 }
 .star{
-  color: #0d001e;
-  font-size: 10px;
+  color: #e4c306cc;
+  font-size: 20px;
   
 }
 .card {
@@ -35,9 +37,10 @@
   }
 }
 .par{
+  margin:0px 0 30px 27px;
   font-size: xx-large;
-  color: #c9e7ec;
-  text-shadow: 2px 2px 10px #0d001e ;
+  color: #cfe9ff;
+  text-shadow: 0 0 12px rgba(66, 165, 245, 0.6);
   font-weight: bold;
   font-family: "Tagesschrift", sans-serif !important;
 }
@@ -45,7 +48,7 @@
   font-family: "Tagesschrift", sans-serif !important;
 }
 .icon {
-  background-color: rgb(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   top: 15px;
   right: 10px;

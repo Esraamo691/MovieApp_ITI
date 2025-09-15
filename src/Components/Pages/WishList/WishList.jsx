@@ -33,7 +33,7 @@ function WishList() {
             <div className={styles.posterWrapper}>
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={movie.title}
+                alt={movie.title || movie.name}
                 className={styles.poster}
               />
               <div
@@ -41,11 +41,11 @@ function WishList() {
                 onClick={() => {
                   toggleWishlist(movie);
                   if (wishlist.some((m) => m.id === movie.id)) {
-                    toast.info(`${movie.title} removed from favourites!`, {
+                    toast.info(`${movie.title || movie.name} removed from favourites!`, {
                       transition: Bounce,
                     });
                   } else {
-                    toast.success(`${movie.title} added to favourites!`, {
+                    toast.success(`${movie.title || movie.name} added to favourites!`, {
                       transition: Bounce,
                     });
                   }
@@ -56,8 +56,8 @@ function WishList() {
             </div>
 
             <div className={styles.details}>
-              <h3 className={styles.movieTitle}>{movie.title}</h3>
-              <p className={styles.date}>{movie.release_date?.split("-")[0]}</p>
+              <h3 className={styles.movieTitle}>{movie.title || movie.name}</h3>
+              <p className={styles.date}>{movie.release_date?.split("-")[0] || movie.first_air_date?.split("-")[0]}</p>
 
               <div className={styles.rating}>
                 {[...Array(5)].map((_, idx) => (

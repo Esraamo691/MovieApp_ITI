@@ -3,12 +3,17 @@ import styles from "../Home/Home.module.css";
 import { useLoading } from "../../Context/LoadingContext";
 import Loading from "../../Loading/Loading.jsx";
 import StarBorderIcon from '@mui/icons-material/StarBorder';
+import { useWishlist } from "../../Context/WishListContext.jsx";
+
+
 export default function Home() {
   const [index, setIndex] = useState(0);
   const [slides, setSlides] = useState([]);
   const timeRunning = 3000;
   const timeAutoNext = 2000;
   const { loading, setLoading } = useLoading();
+  const { wishlist, toggleWishlist } = useWishlist();
+
 
   useEffect(() => {
     const apiKey = import.meta.env.VITE_API_KEY;
@@ -87,11 +92,17 @@ export default function Home() {
                 {movie.overview.split(" ").slice(0, 35).join(" ")}
               </div>
               <div className={`${styles.buttons}`}>
-                <button className={`${styles.btny}`}>
+                <button className={`${styles.btnPrimary}`}>
                   <i className="fas fa-play"></i>
                   WATCH
                 </button>
-                <button>ADD TO FAVOURITE</button>
+                <button
+                  className={styles.btnSecondary}
+                  onClick={() =>  toggleWishlist(movie)}
+                >
+                 {wishlist.some((m) => m.id === movie.id) ? "REMOVE FROM FAVOURITE": "ADD TO FAVOURITE"}
+                </button>
+
               </div>
             </div>
           </div>

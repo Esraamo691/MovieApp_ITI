@@ -47,7 +47,7 @@ export default function Navbar() {
                 }
               >
                 <MovieIcon fontSize="small" />
-                <span>Movies</span>
+                <span >Movies</span>
               </NavLink>
             </li>
 
@@ -75,7 +75,7 @@ export default function Navbar() {
                 }
               >
                 {/*lenght of wishlist*/}
-                Favourites{" "}
+                <span>Favourites{" "}</span>
                 <span className={`${styles.favBadge} ms-2`}>
                   {wishlist.length}
                 </span>
@@ -89,7 +89,7 @@ export default function Navbar() {
               type="search"
               placeholder="Search..."
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={(e) => setSearchTerm(e.target.value) }
             />
             <button className={`btn ${styles.btn}`} type="submit">
               Search
