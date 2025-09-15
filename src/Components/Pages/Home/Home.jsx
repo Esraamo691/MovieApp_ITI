@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import styles from "../Home/Home.module.css";
 import { useLoading } from "../../Context/LoadingContext";
 import Loading from "../../Loading/Loading.jsx";
-import StarBorderIcon from '@mui/icons-material/StarBorder';
+import StarBorderIcon from "@mui/icons-material/StarBorder";
 import { useWishlist } from "../../Context/WishListContext.jsx";
-
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const [index, setIndex] = useState(0);
@@ -13,7 +13,6 @@ export default function Home() {
   const timeAutoNext = 2000;
   const { loading, setLoading } = useLoading();
   const { wishlist, toggleWishlist } = useWishlist();
-
 
   useEffect(() => {
     const apiKey = import.meta.env.VITE_API_KEY;
@@ -85,7 +84,7 @@ export default function Home() {
                 {movie.release_date?.slice(0, 4)}
               </div>
               <p>
-                <StarBorderIcon className={`${styles.star}`}/>
+                <StarBorderIcon className={`${styles.star}`} />
                 {movie.vote_average.toFixed(2)}
               </p>
               <div className={styles.des}>
@@ -93,16 +92,22 @@ export default function Home() {
               </div>
               <div className={`${styles.buttons}`}>
                 <button className={`${styles.btnPrimary}`}>
-                  <i className="fas fa-play"></i>
-                  WATCH
+                  <Link
+                    to={`/movie/${movie.id}`}
+                    className="text-decoration-none d-block text-reset h-100"
+                  >
+                    <i className="fas fa-play"></i>
+                    WATCH
+                  </Link>
                 </button>
                 <button
                   className={styles.btnSecondary}
-                  onClick={() =>  toggleWishlist(movie)}
+                  onClick={() => toggleWishlist(movie)}
                 >
-                 {wishlist.some((m) => m.id === movie.id) ? "REMOVE FROM FAVOURITE": "ADD TO FAVOURITE"}
+                  {wishlist.some((m) => m.id === movie.id)
+                    ? "REMOVE FROM FAVOURITE"
+                    : "ADD TO FAVOURITE"}
                 </button>
-
               </div>
             </div>
           </div>
