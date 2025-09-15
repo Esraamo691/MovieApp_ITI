@@ -3,7 +3,7 @@
   min-height: 100vh;
   color: #e4e6eb;
   overflow-x: hidden;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .movieDetails::before {
@@ -71,7 +71,7 @@
 .imgFluid {
   position: relative;
   top: -50px;
-  left: -20%;;
+  left: -20%;
   max-height: 65vh;
   max-width: 400px;
   border-radius: 20px;
@@ -134,12 +134,22 @@
   margin-bottom: 0.8rem;
 }
 
-.mb2 { margin-bottom: 0.5rem; }
-.mb3 { margin-bottom: 1rem; }
-.mb4 { margin-bottom: 1.5rem; }
+.mb2 {
+  margin-bottom: 0.5rem;
+}
+.mb3 {
+  margin-bottom: 1rem;
+}
+.mb4 {
+  margin-bottom: 1.5rem;
+}
 
-.dFlex { display: flex; }
-.gap2 { gap: 0.8rem; }
+.dFlex {
+  display: flex;
+}
+.gap2 {
+  gap: 0.8rem;
+}
 
 .btnFilled {
   border: 1px solid #3179b8;
@@ -181,14 +191,20 @@
   margin-top: 4rem;
   border-radius: 15px;
 }
-
-.textWhite { 
+.tex{
+  font-size: 35px;
+  margin-left: 7%;
+  font-weight: bold;
+   font-family: "Tagesschrift", sans-serif !important;
+  color: #3594e7e0;
+}
+.textWhite {
   color: #3594e7e0;
   margin-left: 7%;
   font-weight: bold;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 24px;
- }
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 20px;
+}
 .sliderCard {
   display: flex;
   flex-direction: column;
@@ -200,20 +216,26 @@
   height: auto;
   width: auto;
   padding: 0.5rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.sliderCard:hover { transform: scale(1.0)!important; }
+.sliderCard:hover {
+  transform: scale(1) !important;
+}
 
 .sliderCard img {
   width: auto;
   max-width: 100%;
-  height: auto;
+  height: 300px;
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0, 123, 255, 0.25);
   transition: all 0.4s;
+  margin: auto;
 }
 
-.sliderImg:hover { transform: scale(1.05); }
+.sliderImg:hover {
+  transform: scale(1.05);
+}
 
 .textCenter {
   text-align: center;
@@ -236,9 +258,16 @@
     margin-left: 0;
   }
 
-  .imgFluid { max-width: 70%; margin-top: 20px; }
+  .imgFluid {
+    max-width: 70%;
+    margin-top: 20px;
+  }
 
-  .description { max-width: 100%; }
+  .description {
+    max-width: 100%;
+  }
 
-  .sliderImg { height: 250px; }
+  .sliderImg {
+    height: 250px;
+  }
 }

@@ -180,7 +180,7 @@ const MovieDetails = () => {
       <div
         className={`${styles.recommendedSection} ${styles.container} ${styles.py4}`}
       >
-        <h2 className={`${styles.textWhite} ${styles.mb3}`}>Recommended</h2>
+        <h2 className={`${styles.tex} ${styles.mb3}`}>Recommended</h2>
         {recommendedMovies.length > 0 ? (
           <Slider {...sliderSettings} className="h-100">
             {recommendedMovies.map((m) => (
