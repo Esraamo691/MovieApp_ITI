@@ -11,7 +11,7 @@ export default function ScrollToTopButton() {
     const handleScroll = () => {
       if (window.scrollY > 300) {
         setIsVisible(true);
-      } else {
+      } else {  
         setIsVisible(false); // لو فوق خالص يختفي على طول
       }
 

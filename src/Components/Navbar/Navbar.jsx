@@ -11,7 +11,7 @@ export default function Navbar() {
   const { wishlist } = useWishlist();
   const handleSearch = (e) => {
     e.preventDefault();
-    if (searchTerm.trim() !== "") {
+    if (searchTerm.trim() !== "") { 
       navigate(`/search?query=${encodeURIComponent(searchTerm)}`);
       setSearchTerm("");
     }

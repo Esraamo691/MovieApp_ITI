@@ -6,7 +6,7 @@ const teamMembers = [
   { name: "Esraa Mohamed", linkedin: "https://www.linkedin.com/in/esraa-mohamed-955222320/" },
   { name: "Eman Samy", linkedin: "https://www.linkedin.com/in/eman-samy-46566a366/" },
   { name: "Fatma Adel", linkedin: "https://www.linkedin.com/in/FatemaAdel/" },
-  { name: "Marwa Bassuoni", linkedin: "https://www.linkedin.com/in/marwa-atlam-9a7369359/" },
+  { name: "Marwa Atlam", linkedin: "https://www.linkedin.com/in/marwa-atlam-9a7369359/" },
   { name: "Shahd Saied", linkedin: "https://www.linkedin.com/in/shahd-saied/" },
 
 ];

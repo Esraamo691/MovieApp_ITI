@@ -77,9 +77,9 @@ export default function Home() {
             />
             <div className={styles.content}>
               <div className={styles.author}>TMDB</div>
-              <div className={styles.title}>
+              <p className={styles.title}>
                 {movie.title.split(" ").slice(0, 4).join(" ")}
-              </div>
+              </p>
               <div className={styles.topic}>
                 {movie.release_date?.slice(0, 4)}
               </div>
