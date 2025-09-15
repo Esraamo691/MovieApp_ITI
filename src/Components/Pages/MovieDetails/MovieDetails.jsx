@@ -97,7 +97,7 @@ const MovieDetails = () => {
           image: m.poster_path
             ? `https://image.tmdb.org/t/p/w200${m.poster_path}`
             : "https://via.placeholder.com/200x300?text=No+Image",
-          type: type, // movie or tv
+          type: type,
         }))
       );
     } catch (err) {
@@ -112,7 +112,7 @@ const MovieDetails = () => {
       return;
     }
     fetchMovieDetails(id);
-    fetchRecommendedMovies(id); // استخدم type="movie" أو "tv" حسب الحاجة
+    fetchRecommendedMovies(id); 
   }, [id, navigate]);
 
   if (loading) return <Loading />;

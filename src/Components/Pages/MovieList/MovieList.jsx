@@ -5,7 +5,6 @@ import { Pagination, PaginationItem } from "@mui/material";
 import { useLoading } from "../../Context/LoadingContext";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import Loading from "../../Loading/Loading.jsx";
-//wishlist
 import { useWishlist } from "../../Context/WishListContext.jsx";
 import { toast, Bounce } from "react-toastify";
 export default function MovieList() {
@@ -47,7 +46,7 @@ export default function MovieList() {
                 {/*add or remove from wishlist*/}
                 <div
                   className={`${style.icon} d-flex justify-content-center align-items-center`}
-                  // onClick={() =>toggleWishlist(movie)}
+                 
                   onClick={() => {
                     toggleWishlist(movie);
                     if (wishlist.some((m) => m.id === movie.id)) {

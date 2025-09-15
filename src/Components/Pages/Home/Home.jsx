@@ -33,7 +33,7 @@ export default function Home() {
       .catch(console.error);
   }, []);
 
-  // Auto slide
+
   useEffect(() => {
     if (slides.length === 0) return;
     const auto = setTimeout(() => {
@@ -114,7 +114,7 @@ export default function Home() {
         ))}
       </div>
 
-      {/* Thumbnails */}
+
       <div className={styles.thumbnail}>
         <div
           className={styles.thumbnailTrack}
@@ -137,13 +137,13 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Arrows */}
+
       <div className={styles.arrows}>
         <button onClick={handlePrev}>&lt;</button>
         <button onClick={handleNext}>&gt;</button>
       </div>
 
-      {/* Progress bar */}
+
       <div
         key={index}
         className={styles.time}

@@ -5,7 +5,6 @@ import { Pagination, PaginationItem } from "@mui/material";
 import { useLoading } from "../../Context/LoadingContext";
 import Loading from "../../Loading/Loading.jsx";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
-//wishlist
 import { useWishlist } from "../../Context/WishListContext.jsx";
 import { toast, Bounce } from "react-toastify";
 export default function SearchList() {

@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "../MovieDetails/movie.module.css";
 import { useLoading } from "../../Context/LoadingContext";
-import Loading from "../../Loading/Loading.jsx"; // نفس الـ component اللي بتستعمله فوق
+import Loading from "../../Loading/Loading.jsx"; 
 const TvShowDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();

@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp"; 
 
 export default function ScrollToTopButton() {
-  const [isVisible, setIsVisible] = useState(false); // للتحكم في ظهور الزرار
-  const [isScrolling, setIsScrolling] = useState(false); // عشان التنطيط
+  const [isVisible, setIsVisible] = useState(false); 
+  const [isScrolling, setIsScrolling] = useState(false); 
   const hideTimeoutRef = useRef(null);
 
   useEffect(() => {
@@ -12,13 +12,13 @@ export default function ScrollToTopButton() {
       if (window.scrollY > 300) {
         setIsVisible(true);
       } else {  
-        setIsVisible(false); // لو فوق خالص يختفي على طول
+        setIsVisible(false); 
       }
 
-      // لما يبدأ سكروول نشغل التنطيط
+     
       setIsScrolling(true);
 
-      // نوقف أي تايمر قديم
+    
       if (hideTimeoutRef.current) {
         clearTimeout(hideTimeoutRef.current);
       }
@@ -52,12 +52,12 @@ export default function ScrollToTopButton() {
           initial={{ opacity: 0, y: 50 }}
           animate={{
             opacity: 1,
-            y: isScrolling ? [0, -8, 0] : 0, // تنطيط لو فيه سكروول
+            y: isScrolling ? [0, -8, 0] : 0, 
           }}
           exit={{ opacity: 0, y: 50 }}
           transition={{
             duration: isScrolling ? 0.8 : 0.3,
-            repeat: isScrolling ? Infinity : 0, // يفضل يتنطط طول ما فيه سكروول
+            repeat: isScrolling ? Infinity : 0, 
           }}
           style={{
             position: "fixed",
