@@ -42,15 +42,14 @@
   text-align: center;
   font-family: "Courier New", Courier, monospace;
 }
-li span{
-  font-size: 20px;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+li span {
+  font-size: 18px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 /* Active link */
 .activeLink {
-  font-size: 18px;
+  font-size: 17px;
   color: #eeedff !important;
-  font-weight: bold;
 
   border-radius: 10px;
   background-size: 200%;
@@ -69,12 +68,12 @@ li span{
   box-shadow: none;
 }
 .btn {
-  height: 2.5rem; 
+  height: 2.5rem;
   padding: 0 1rem;
-  margin-top: 4px; 
-  margin-left: 0.5rem; 
+  margin-top: 4px;
+  margin-left: 0.5rem;
   border: none;
-  border-radius: 9999px; 
+  border-radius: 9999px;
   background-image: linear-gradient(
     to right,
     #0d001e90 0%,
@@ -83,7 +82,7 @@ li span{
   );
   color: #f9f9fc;
   font-weight: 600;
-  font-family:Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -100,20 +99,19 @@ li span{
 
 .formInput {
   width: 100%;
-  max-width: 28rem; 
-  height: 3rem;   
-  padding-left: 0.75rem; 
-  padding-right: 0.75rem; 
+  max-width: 28rem;
+  height: 3rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
   font-size: 1.1rem;
-  border-radius: 9999px; 
-  border: 1px solid rgba(255, 255, 255, 0.1); 
-  background-color: rgba(255, 255, 255, 0.05); 
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
   outline: none;
-  
 }
 .formInput::placeholder {
-  color: #9ca3af; 
+  color: #9ca3af;
 }
 .formInput:focus {
   color: rgb(227, 227, 236);

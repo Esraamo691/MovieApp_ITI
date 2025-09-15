@@ -217,6 +217,7 @@
   width: auto;
   padding: 0.5rem;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  
 }
 
 .sliderCard:hover {
@@ -258,10 +259,7 @@
     margin-left: 0;
   }
 
-  .imgFluid {
-    max-width: 70%;
-    margin-top: 20px;
-  }
+ 
 
   .description {
     max-width: 100%;

@@ -179,7 +179,7 @@ const TvShowDetails = () => {
       <div
         className={`${styles.recommendedSection} ${styles.container} ${styles.py4}`}
       >
-        <h4 className={`${styles.textWhite} ${styles.mb3}`}>Recommended Shows</h4>
+        <h4 className={`${styles.tex} ${styles.mb3}`}>Recommended</h4>
         {recommendedShows.length > 0 ? (
           <Slider {...sliderSettings} className="h-100">
             {recommendedShows.map((s) => (
@@ -188,16 +188,18 @@ const TvShowDetails = () => {
                 key={s.id}
                 className={`${styles.sliderCard} h-100 text-decoration-none`}
               >
-                <img
+               <div className=" text-center d-flex flex-column justify-content-center align-items-center">
+                 <img
                   src={s.image}
                   alt={s.title}
-                  className={`${styles.imgFluid} ${styles.rounded}`}
+                  className={` ${styles.rounded}`}
                 />
                 <p
                   className={`${styles.textCenter} ${styles.textWhite} ${styles.mt2}`}
                 >
                   {s.title.split(" ").slice(0, 3).join(" ")}
                 </p>
+               </div>
               </Link>
             ))}
           </Slider>

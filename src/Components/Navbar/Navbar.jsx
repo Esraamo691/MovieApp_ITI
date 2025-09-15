@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import MovieIcon from "@mui/icons-material/Movie";
 import TvIcon from "@mui/icons-material/Tv";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import styles from "../Navbar/Navbar.module.css";
-import { useWishlist } from "../Context/WishListContext.jsx"; //import wishlist
+import { useWishlist } from "../Context/WishListContext.jsx";
 export default function Navbar() {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
@@ -22,9 +22,9 @@ export default function Navbar() {
       className={`navbar navbar-expand-lg navbar-dark bg-transparent fixed-top px-3 ${styles.navbar}`}
     >
       <div className="container-fluid">
-        <a className={`${styles.logo} text-uppercase`} href="/">
+        <Link className={`${styles.logo} text-uppercase`} to={"/"}>
           Movistan
-        </a>
+        </Link>
 
         <button
           className="navbar-toggler"
@@ -39,7 +39,7 @@ export default function Navbar() {
           <ul className="navbar-nav mx-auto mb-2 mb-lg-0 gap-3">
             <li className="nav-item">
               <NavLink
-                to="/movies"
+                to={"/movies"}
                 className={({ isActive }) =>
                   isActive
                     ? `nav-link d-flex align-items-center gap-1 ${styles.activeLink}`
@@ -53,7 +53,7 @@ export default function Navbar() {
 
             <li className="nav-item">
               <NavLink
-                to="/tv-show"
+                to={"/tv-show"}
                 className={({ isActive }) =>
                   isActive
                     ? `nav-link d-flex align-items-center gap-1 ${styles.activeLink}`
@@ -67,13 +67,14 @@ export default function Navbar() {
 
             <li className="nav-item">
               <NavLink
-                to="/watch-list"
+                to={"/watch-list"}
                 className={({ isActive }) =>
                   isActive
                     ? `nav-link  d-flex align-items-center position-relative ${styles.activeLink}`
                     : "nav-link d-flex align-items-center position-relative "
                 }
               >
+                <FavoriteIcon/>
                 {/*lenght of wishlist*/}
                 <span>Favourites{" "}</span>
                 <span className={`${styles.favBadge} ms-2`}>

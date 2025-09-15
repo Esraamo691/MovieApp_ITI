@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import style from "../MovieList/MovieList.module.css";
 import { Pagination, PaginationItem } from "@mui/material";
 import { useLoading } from "../../Context/LoadingContext";
@@ -72,31 +72,35 @@ export default function SearchList() {
                       } fa-heart`}
                     ></i>
                   </div>
+                  <Link
+                    to={`/movie/${movie.id}`}
+                    className="text-decoration-none d-block text-reset h-100"
+                  >
+                    <img
+                      src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                      className="w-100 img-fluid"
+                      alt={movie.title}
+                    />
+                    <div className="card-body px-3">
+                      <p className={`fw-bold m-0 fs-4 ${style.tite}`}>
+                        {movie.title?.split(" ").length > 4
+                          ? movie.title.split(" ").slice(0, 4).join(" ") + "..."
+                          : movie.title}
+                      </p>
+                      <p>{movie.release_date?.split("-")[0]}</p>
+                      <p>
+                        {movie.overview?.split(" ").length > 30
+                          ? movie.overview.split(" ").slice(0, 30).join(" ") +
+                            "..."
+                          : movie.overview}
+                      </p>
+                    </div>
 
-                  <img
-                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                    className="w-100 img-fluid"
-                    alt={movie.title}
-                  />
-                  <div className="card-body px-3">
-                    <p className={`fw-bold m-0 fs-4 ${style.tite}`}>
-                      {movie.title?.split(" ").length > 4
-                        ? movie.title.split(" ").slice(0, 4).join(" ") + "..."
-                        : movie.title}
+                    <p className={`${style.pop}`}>
+                      <StarBorderIcon className={`${style.star}`} />
+                      {movie.vote_average.toFixed(2)}
                     </p>
-                    <p>{movie.release_date?.split("-")[0]}</p>
-                    <p>
-                      {movie.overview?.split(" ").length > 30
-                        ? movie.overview.split(" ").slice(0, 30).join(" ") +
-                          "..."
-                        : movie.overview}
-                    </p>
-                  </div>
-
-                  <p className={`${style.pop}`}>
-                    <StarBorderIcon className={`${style.star}`} />
-                    {movie.vote_average.toFixed(2)}
-                  </p>
+                  </Link>
                 </div>
               </div>
             ))
@@ -113,7 +117,8 @@ export default function SearchList() {
             siblingCount={2}
             boundaryCount={1}
             renderItem={(item) => (
-              <PaginationItem className="text-white"
+              <PaginationItem
+                className="text-white"
                 {...item}
                 sx={{
                   "&.MuiPaginationItem-root": {
