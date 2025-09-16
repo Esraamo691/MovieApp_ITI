@@ -31,8 +31,8 @@ export default function Home() {
         setLoading(false);
       })
       .catch(console.error);
+    setLoading(false);
   }, []);
-
 
   useEffect(() => {
     if (slides.length === 0) return;
@@ -75,9 +75,11 @@ export default function Home() {
               src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
               alt={movie.title}
             />
-            <div className={styles.content}>
+            <div
+              className={`${styles.content} animate__animated animate__zoomInLeft`}
+            >
               <div className={styles.author}>TMDB</div>
-              <p className={styles.title}>
+              <p className={`${styles.title}`}>
                 {movie.title.split(" ").slice(0, 4).join(" ")}
               </p>
               <div className={styles.topic}>
@@ -85,7 +87,9 @@ export default function Home() {
               </div>
               <p>
                 <StarBorderIcon className={`${styles.star}`} />
-                {movie.vote_average.toFixed(2)}
+                {movie.vote_average != null
+                  ? movie.vote_average.toFixed(2)
+                  : "N/A"}
               </p>
               <div className={styles.des}>
                 {movie.overview.split(" ").slice(0, 35).join(" ")}
@@ -114,7 +118,6 @@ export default function Home() {
         ))}
       </div>
 
-
       <div className={styles.thumbnail}>
         <div
           className={styles.thumbnailTrack}
@@ -137,12 +140,10 @@ export default function Home() {
         </div>
       </div>
 
-
       <div className={styles.arrows}>
         <button onClick={handlePrev}>&lt;</button>
         <button onClick={handleNext}>&gt;</button>
       </div>
-
 
       <div
         key={index}

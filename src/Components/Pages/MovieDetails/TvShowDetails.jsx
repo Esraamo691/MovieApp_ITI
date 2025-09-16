@@ -144,7 +144,7 @@ const TvShowDetails = () => {
           </button>
         </div>
         <div className={styles.row}>
-          <div className={styles.colMd6}>
+          <div className={`${styles.colMd6 } animate__animated animate__fadeInLeft`}>
             <h1 className={styles.display4}>{currentShow.title}</h1>
             <p className={`${styles.textMuted} ${styles.seasonText}`}>
               {currentShow.season} • {currentShow.seasons} Seasons /{" "}
@@ -165,7 +165,7 @@ const TvShowDetails = () => {
             </div>
             <p className={styles.description}>{currentShow.description}</p>
           </div>
-          <div className={styles.colMd6}>
+          <div className={`${styles.colMd6 } animate__animated animate__fadeInRight`}>
             <img
               src={currentShow.image}
               alt={currentShow.title}

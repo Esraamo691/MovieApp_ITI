@@ -3,8 +3,7 @@ import style from "../MovieList/MovieList.module.css";
 import { useLoading } from "../../Context/LoadingContext.jsx";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import { Pagination, PaginationItem } from "@mui/material";
-import { Link } from "react-router-dom"; // ✅ استيراد اللينك
-//wishlist
+import { Link } from "react-router-dom"; 
 import { useWishlist } from "../../Context/WishListContext.jsx";
 import { toast, Bounce } from "react-toastify";
 function TvShows() {
@@ -40,7 +39,6 @@ function TvShows() {
           {shows.map((show) => (
             <div className="col-lg-3 col-md-4 col-sm-6" key={show.id}>
               <div className={`${style.card} h-100 position-relative`}>
-                {/* add or remove from wishlist */}
                 <div
                   className={`${style.icon} d-flex justify-content-center align-items-center`}
                   onClick={() => {
@@ -63,7 +61,7 @@ function TvShows() {
                   ></i>
                 </div>
 
-                {/* ✅ خلي الكارت كله يوديك على صفحة التفاصيل */}
+
                 <Link
                   to={`/tv/${show.id}`}
                   className="text-decoration-none d-block text-reset h-100"
@@ -93,7 +91,7 @@ function TvShows() {
                   </div>
                   <p className={`${style.pop}`}>
                     <StarBorderIcon className={`${style.star}`} />
-                    {show.vote_average.toFixed(2)}
+                    {typeof show.vote_average === "number" ? show.vote_average.toFixed(2) : "N/A"}
                   </p>
                 </Link>
               </div>

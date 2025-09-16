@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import Slider from "react-slick";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./movie.module.css";
@@ -140,7 +139,7 @@ const MovieDetails = () => {
           </button>
         </div>
         <div className={styles.row}>
-          <div className={styles.colMd6}>
+          <div className={`${styles.colMd6 } animate__animated animate__fadeInLeft`}>
             <h1 className={styles.display4}>{currentMovie.title}</h1>
             <p className={`${styles.textMuted} ${styles.seasonText}`}>
               {currentMovie.season}
@@ -166,7 +165,7 @@ const MovieDetails = () => {
             </div>
             <p className={styles.description}>{currentMovie.description}</p>
           </div>
-          <div className={styles.colMd6}>
+          <div className={`${styles.colMd6 } animate__animated animate__fadeInRight`}>
             <img
               src={currentMovie.image}
               alt={currentMovie.title}

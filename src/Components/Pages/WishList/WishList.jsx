@@ -15,7 +15,7 @@ function WishList() {
       <div className={styles.titleWrapper}>
         <h2>
           <i className="fa-solid fa-heart"></i> My Favourite{" "}
-          <span>[{wishlist.length}]</span>
+          <span>({wishlist.length})</span>
         </h2>
       </div>
 

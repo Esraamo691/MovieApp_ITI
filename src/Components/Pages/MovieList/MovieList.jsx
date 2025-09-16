@@ -97,7 +97,7 @@ export default function MovieList() {
 
                   <p className={`${style.pop}`}>
                     <StarBorderIcon className={`${style.star}`} />
-                    {movie.vote_average.toFixed(2)}
+                   {typeof movie.vote_average === "number" ? movie.vote_average.toFixed(2) : "N/A"}
                   </p>
                 </Link>
               </div>

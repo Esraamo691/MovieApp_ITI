@@ -56,7 +56,7 @@ export default function ScrollToTopButton() {
           }}
           exit={{ opacity: 0, y: 50 }}
           transition={{
-            duration: isScrolling ? 0.8 : 0.3,
+            duration: isScrolling ? 1 : 0.5,
             repeat: isScrolling ? Infinity : 0, 
           }}
           style={{

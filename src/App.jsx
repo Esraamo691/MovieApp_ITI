@@ -8,7 +8,6 @@ import WishList from "./Components/Pages/WishList/WishList";
 import TvShows from "./Components/Pages/TvShows/TvShows";
 import ScrollToTopButton from "./Components/ScrollToTop";
 import NotFound from "./Components/NotFound/NotFound";
-import { WishlistProvider } from "./Components/Context/WishListContext.jsx";
 import TvShowDetails from "./Components/Pages/MovieDetails/TvShowDetails.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -32,10 +31,9 @@ export default function App() {
 
   return (
     <>
-      <WishlistProvider>
-        <RouterProvider router={router} />
-        <ScrollToTopButton />
-        <ToastContainer 
+      <RouterProvider router={router} />
+      <ScrollToTopButton />
+      <ToastContainer
         position="top-right"
         autoClose={3000}
         hideProgressBar={false}
@@ -47,7 +45,6 @@ export default function App() {
         pauseOnHover
         theme="dark"
       />
-      </WishlistProvider>
     </>
   );
 }
