@@ -68,7 +68,7 @@ export default function Home() {
       <div className={styles.list}>
         {slides.map((movie, i) => (
           <div
-            key={movie.id}
+            key={movie.id}  
             className={`${styles.item} ${i === index ? styles.itemActive : ""}`}
           >
             <img

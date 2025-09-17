@@ -59,7 +59,7 @@ export default function MovieList() {
                       });
                     }
                   }}
-                >
+                >  
                   <i
                     className={`fa${
                       wishlist.some((m) => m.id === movie.id) ? "s" : "r"
