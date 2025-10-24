@@ -1,9 +1,61 @@
-1-Esraa Mohamed El-Saeed Matouq[Team Leader] / Tasks:Home,MovieList , SearchResults
+🎬 Movie App
 
-2-Eman Samy Gamal Aldeen  / Tasks:WatchList , Footer
+A simple and modern React.js Movie App that allows users to browse movies and TV shows, search for specific titles, view detailed information, and save favorites.
+Built with a clean and responsive design using React Router and Context API for smooth navigation and state management.
 
-3-Fatma Adel Abdelghany Elabd  / Tasks:Navbar , Notfound
 
-4-Marwa Bassuoni Arafa Atlam / Tasks:TvShows
+---
 
-5-Shahd Saied Mohamed Shalaan  / Tasks: Details
+ Features
+
+🎨 Clean & responsive UI for all screen sizes
+
+🔍 Search functionality for movies and TV shows
+
+❤️ Add / Remove favorites (saved in localStorage)
+
+🧭 Smooth navigation using React Router
+
+🎞️ Detailed movie pages (poster, rating, release date, overview)
+
+..Light & Dark mode support (optional)
+
+💾 Data fetched from TMDB API
+
+🧰 Context API for global state management
+
+
+
+---
+
+🧠 Technologies Used
+
+⚛️ React.js
+
+🧭 React Router v6
+
+🧩 Context API
+
+🌐 Fetch / Axios
+
+ CSS / CSS Modules
+
+🗝️ TMDB API
+
+💾 localStorage
+
+
+
+---
+
+🛠️ Setup Instructions
+
+# Clone the repository
+git clone https://github.com/your-username/movie-app.git
+cd movie-app
+
+# Install dependencies
+npm install
+
+# Run the development server
+npm start
