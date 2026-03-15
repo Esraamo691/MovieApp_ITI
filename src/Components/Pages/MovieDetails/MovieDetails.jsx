@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React, { useState, useEffect, useMemo } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import Slider from "react-slick";
@@ -37,6 +38,9 @@ const MovieDetails = () => {
     []
 =======
 import { motion } from 'framer-motion';
+=======
+// import { motion } from "motion/react";
+>>>>>>> origin/marwa
 import style from  "../MovieDetails/movie.module.css"
 import { Bounce, toast, ToastContainer } from "react-toastify";
 export default function MovieDetails() {

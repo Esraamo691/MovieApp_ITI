@@ -1,6 +1,10 @@
 .emptyWishlistContainer {
   background-color: #0b0b10;
+<<<<<<< HEAD
   min-height: 100vh;         
+=======
+  min-height: 100vh;          /* يغطي الشاشة كلها */
+>>>>>>> origin/marwa
 }
 
 .icon {
@@ -33,8 +37,13 @@
     opacity:0.5;
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 }
 
 >>>>>>> origin/eman
+=======
+}
+
+>>>>>>> origin/marwa
