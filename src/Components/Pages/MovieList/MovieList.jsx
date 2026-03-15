@@ -10,8 +10,12 @@ import { useWishlist } from "../../Context/WishListContext.jsx";
 import { toast, Bounce } from "react-toastify";
 =======
 import { useLoading } from "../../Context/LoadingContext.jsx";
+<<<<<<< HEAD
 //wishlist
 import { useWishlist } from "../../Context/WishListContext.jsx";
+=======
+import { Link } from "react-router-dom";
+>>>>>>> origin/shahd
 
 >>>>>>> origin/eman
 export default function MovieList() {
@@ -46,9 +50,34 @@ export default function MovieList() {
       });
   }, [page, setLoading]);
 
+<<<<<<< HEAD
   if (loading) {
     return <Loading />;
   }
+=======
+  const renderPageNumbers = () => {
+    let pages = [];
+    const maxPagesToShow = 5;
+    let startPage = Math.max(1, page - Math.floor(maxPagesToShow / 2));
+    let endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
+
+    if (endPage - startPage < maxPagesToShow - 1) {
+      startPage = Math.max(1, endPage - maxPagesToShow + 1);
+    }
+
+    for (let i = startPage; i <= endPage; i++) {
+      pages.push(
+        <li key={i} className={`page-item ${page === i ? "active" : ""}`}>
+          <button className="page-link" onClick={() => setPage(i)}>
+            {i}
+          </button>
+        </li>
+      );
+    }
+
+    return pages;
+  };
+>>>>>>> origin/shahd
 
   return (
     <div className={`${style.body}`}>
@@ -57,6 +86,7 @@ export default function MovieList() {
         <div className={`row g-4 ${style.row}`}>
           {movies.map((movie) => (
             <div className="col-lg-3 col-md-4 col-sm-6" key={movie.id}>
+<<<<<<< HEAD
               <div className={`${style.card} h-100 position-relative`}>
                 {/*add or remove from wishlist*/}
                 <div
@@ -87,6 +117,13 @@ export default function MovieList() {
                   to={`/movie/${movie.id}`}
                   className="text-decoration-none d-block text-reset h-100"
                 >
+=======
+              <Link
+                to={`/movie/${movie.id}`}
+                className="text-decoration-none d-block h-100"
+              >
+                <div className={`${style.card} h-100`}>
+>>>>>>> origin/shahd
                   <img
                     src={
                       movie.poster_path
@@ -97,7 +134,11 @@ export default function MovieList() {
                     alt={movie.title}
                   />
                   <div className="card-body px-3">
+<<<<<<< HEAD
                     <p className={`fw-bold m-0 fs-4 ${style.tite}`}>
+=======
+                    <p className="fw-bold m-0 fs-4">
+>>>>>>> origin/shahd
                       {movie.title?.split(" ").length > 4
                         ? movie.title.split(" ").slice(0, 4).join(" ") + "..."
                         : movie.title}
@@ -105,6 +146,7 @@ export default function MovieList() {
                     <p>{movie.release_date?.split("-")[0]}</p>
                     <p>
                       {movie.overview?.split(" ").length > 30
+<<<<<<< HEAD
                         ? movie.overview.split(" ").slice(0, 30).join(" ") +
                           "..."
                         : movie.overview}
@@ -129,11 +171,25 @@ export default function MovieList() {
                 
 >>>>>>> origin/eman
               </div>
+=======
+                        ? movie.overview.split(" ").slice(0, 30).join(" ") + "..."
+                        : movie.overview}
+                    </p>
+                  </div>
+                  <div
+                    className={`${style.icon} d-flex justify-content-center align-items-center`}
+                  >
+                    <i className="far fa-heart"></i>
+                  </div>
+                </div>
+              </Link>
+>>>>>>> origin/shahd
             </div>
           ))}
         </div>
 
         {/* Pagination */}
+<<<<<<< HEAD
         <div className=" d-flex justify-content-center mt-5">
           <Pagination
             count={totalPages}
@@ -165,6 +221,46 @@ export default function MovieList() {
             )}
           />
         </div>
+=======
+        <nav aria-label="Page navigation example" className="mt-5">
+          <ul className="pagination justify-content-center">
+            <li className={`page-item ${page === 1 ? "disabled" : ""}`}>
+              <button
+                className="page-link"
+                onClick={() => page > 1 && setPage(page - 1)}
+              >
+                Previous
+              </button>
+            </li>
+            {renderPageNumbers()}
+            {page < totalPages - 2 && (
+              <>
+                <li className="page-item disabled">
+                  <span className="page-link">...</span>
+                </li>
+                <li
+                  className={`page-item ${page === totalPages ? "active" : ""}`}
+                >
+                  <button
+                    className="page-link"
+                    onClick={() => setPage(totalPages)}
+                  >
+                    {totalPages}
+                  </button>
+                </li>
+              </>
+            )}
+            <li className={`page-item ${page === totalPages ? "disabled" : ""}`}>
+              <button
+                className="page-link"
+                onClick={() => page < totalPages && setPage(page + 1)}
+              >
+                Next
+              </button>
+            </li>
+          </ul>
+        </nav>
+>>>>>>> origin/shahd
       </div>
     </div>
   );
