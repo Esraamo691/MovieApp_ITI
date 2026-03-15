@@ -1,18 +1,33 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import style from "../MovieList/MovieList.module.css";
+<<<<<<< HEAD
 import { Pagination, PaginationItem } from "@mui/material";
 import { useLoading } from "../../Context/LoadingContext";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import Loading from "../../Loading/Loading.jsx";
 import { useWishlist } from "../../Context/WishListContext.jsx";
 import { toast, Bounce } from "react-toastify";
+=======
+import { useLoading } from "../../Context/LoadingContext.jsx";
+//wishlist
+import { useWishlist } from "../../Context/WishListContext.jsx";
+
+>>>>>>> origin/eman
 export default function MovieList() {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+<<<<<<< HEAD
   const { loading, setLoading } = useLoading();
   const { wishlist, toggleWishlist } = useWishlist();
+=======
+  const { setLoading } = useLoading();
+
+  // wishlist
+  const { wishlist, toggleWishlist } = useWishlist();
+
+>>>>>>> origin/eman
   useEffect(() => {
     const apiKey = import.meta.env.VITE_API_KEY;
     const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=${page}`;
@@ -66,6 +81,7 @@ export default function MovieList() {
                     } fa-heart`}
                   ></i>
                 </div>
+<<<<<<< HEAD
 
                 <Link
                   to={`/movie/${movie.id}`}
@@ -100,6 +116,18 @@ export default function MovieList() {
                    {typeof movie.vote_average === "number" ? movie.vote_average.toFixed(2) : "N/A"}
                   </p>
                 </Link>
+=======
+                
+                   {/*add or remove from wishlist*/ }
+                <div 
+                  className={`${style.icon} d-flex justify-content-center align-items-center`}
+                  onClick={() =>toggleWishlist(movie)}
+                >
+                 <i className={`fa${wishlist.some(m => m.id === movie.id) ? 's' : 'r'} fa-heart`}></i>
+                  </div>
+
+                
+>>>>>>> origin/eman
               </div>
             </div>
           ))}

@@ -4,11 +4,23 @@ import MovieIcon from "@mui/icons-material/Movie";
 import TvIcon from "@mui/icons-material/Tv";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import styles from "../Navbar/Navbar.module.css";
+<<<<<<< HEAD
 import { useWishlist } from "../Context/WishListContext.jsx";
 export default function Navbar() {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
   const { wishlist } = useWishlist();
+=======
+import { useWishlist } from "../Context/WishListContext.jsx"; //import wishlist
+
+export default function Navbar() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
+
+  //wishlist
+  const { wishlist } = useWishlist();
+
+>>>>>>> origin/eman
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchTerm.trim() !== "") { 
@@ -66,6 +78,7 @@ export default function Navbar() {
             </li>
 
             <li className="nav-item">
+<<<<<<< HEAD
               <NavLink
                 to={"/watch-list"}
                 className={({ isActive }) =>
@@ -80,6 +93,11 @@ export default function Navbar() {
                 <span className={`${styles.favBadge} ms-2`}>
                   {wishlist.length}
                 </span>
+=======
+              <NavLink to="/watch-list" className={({ isActive }) => isActive ? `nav-link  d-flex align-items-center ${styles.activeLink}` : "nav-link d-flex align-items-center"}>
+              {/*lenght of wishlist*/ }
+              Favourites  <span className={`${styles.favBadge} ms-2`}>{wishlist.length}</span>
+>>>>>>> origin/eman
               </NavLink>
             </li>
           </ul>

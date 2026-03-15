@@ -63,8 +63,17 @@
     cursor: pointer;
   }
 }
+<<<<<<< HEAD
 .not {
   color: #cdf3e3;
   font-size: x-larg;
 }
 
+=======
+.icon i.fas {
+  color: #ff3b3b; 
+}
+.icon i.far {
+  color: #5db6cf; 
+}
+>>>>>>> origin/eman

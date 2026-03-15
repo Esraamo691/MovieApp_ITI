@@ -1,13 +1,22 @@
 .footer {
+<<<<<<< HEAD
   background-color: rgb(17, 30, 37);
  
+=======
+  background-color: #030d08; 
+>>>>>>> origin/eman
 }
 
 
 .textMint {
+<<<<<<< HEAD
   color: #65C4C9; 
   font-weight: bold;
   font-family: "Tagesschrift", sans-serif !important;
+=======
+  color: #31ac7f; 
+  font-weight: bold;
+>>>>>>> origin/eman
 }
 .about{
     color: #cfd8cfa1;
@@ -17,16 +26,27 @@
   color: white;
   text-decoration: none;
   transition: color 0.3s;
+<<<<<<< HEAD
   font-family:Verdana, Geneva, Tahoma, sans-serif !important;
 }
 
 .footerLink:hover {
   color: #65C4C9;
+=======
+}
+
+.footerLink:hover {
+  color: #3eb489;
+>>>>>>> origin/eman
 }
 
 .footerBottom {
   text-align: center;
   padding: 1rem 0;
   border-top: 1px solid #dbfcdb1f;
+<<<<<<< HEAD
   color: rgb(226, 226, 221);
 }
+=======
+}
+>>>>>>> origin/eman

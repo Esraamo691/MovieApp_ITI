@@ -1,18 +1,29 @@
 import { useEffect, useState } from "react";
 import styles from "../Home/Home.module.css";
+<<<<<<< HEAD
 import { useLoading } from "../../Context/LoadingContext";
 import Loading from "../../Loading/Loading.jsx";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import { useWishlist } from "../../Context/WishListContext.jsx";
 import { Link } from "react-router-dom";
+=======
+import { useLoading } from "../../Context/LoadingContext.jsx";
+//import wishllist context
+import { useWishlist } from "../../Context/WishListContext.jsx";
+>>>>>>> origin/eman
 
 export default function Home() {
   const [index, setIndex] = useState(0);
   const [slides, setSlides] = useState([]);
   const timeRunning = 3000;
   const timeAutoNext = 2000;
+<<<<<<< HEAD
   const { loading, setLoading } = useLoading();
   const { wishlist, toggleWishlist } = useWishlist();
+=======
+  const { setLoading } = useLoading();
+  const { wishlist, toggleWishlist } = useWishlist(); //wishlist
+>>>>>>> origin/eman
 
   useEffect(() => {
     const apiKey = import.meta.env.VITE_API_KEY;
@@ -85,6 +96,7 @@ export default function Home() {
               <div className={styles.topic}>
                 {movie.release_date?.slice(0, 4)}
               </div>
+<<<<<<< HEAD
               <p>
                 <StarBorderIcon className={`${styles.star}`} />
                 {movie.vote_average != null
@@ -112,6 +124,19 @@ export default function Home() {
                     ? "REMOVE FROM FAVOURITE"
                     : "ADD TO FAVOURITE"}
                 </button>
+=======
+              <div className={styles.des}>{movie.overview}</div>
+              <div className={styles.buttons}>
+                <button className={styles.btn}>
+                  <i className=" fas fa-play"></i>
+                  WATCH</button>
+                <button
+                  onClick={() => toggleWishlist(movie)}
+                  className={styles.btnFav}
+                  >
+                   {wishlist.some(m => m.id === movie.id) ? " - REMOVE FROM FAVOURITE" : " + ADD TO FAVOURITE"}
+                   </button>
+>>>>>>> origin/eman
               </div>
             </div>
           </div>

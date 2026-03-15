@@ -107,19 +107,32 @@ body {
 
 .movieTitle {
   padding-top: 13px;
+<<<<<<< HEAD
   padding-right: 15%;
 }
 
 .icon {
   background-color: rgb(0, 0, 0, 0.5);
   color: #3179b8;
+=======
+  padding-right: 10px;
+}
+
+.icon {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #d45747;
+>>>>>>> origin/eman
   position: absolute;
   top: 15px;
   right: 15px;
   width: 40px;
   height: 40px;
   border-radius: 50%;
+<<<<<<< HEAD
   box-shadow: 1px 1px 6px #3179b8;
+=======
+  box-shadow: 1px 1px 6px #4e81ac;
+>>>>>>> origin/eman
   display: flex;
   justify-content: center;
   align-items: center;
@@ -172,7 +185,10 @@ body {
 .desc {
   display: -webkit-box;
   -webkit-line-clamp: 4;
+<<<<<<< HEAD
   line-clamp: 4;
+=======
+>>>>>>> origin/eman
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -214,4 +230,8 @@ body {
   .icon i {
     font-size: large;
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/eman

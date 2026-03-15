@@ -1,3 +1,4 @@
+import React from 'react'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./Components/Layout";
 import Home from "./Components/Pages/Home/Home";
@@ -6,11 +7,17 @@ import MovieList from "./Components/Pages/MovieList/MovieList";
 import SearchList from "./Components/Pages/SearchResult/SearchList";
 import WishList from "./Components/Pages/WishList/WishList";
 import TvShows from "./Components/Pages/TvShows/TvShows";
+<<<<<<< HEAD
 import ScrollToTopButton from "./Components/ScrollToTop";
 import NotFound from "./Components/NotFound/NotFound";
 import TvShowDetails from "./Components/Pages/MovieDetails/TvShowDetails.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+=======
+//import context for wishlist
+import { WishlistProvider } from "./Components/Context/WishListContext.jsx";
+
+>>>>>>> origin/eman
 export default function App() {
   const router = createBrowserRouter([
     {
@@ -30,8 +37,9 @@ export default function App() {
   ]);
 
   return (
-    <>
+    <WishlistProvider>
       <RouterProvider router={router} />
+<<<<<<< HEAD
       <ScrollToTopButton />
       <ToastContainer
         position="top-right"
@@ -46,5 +54,8 @@ export default function App() {
         theme="dark"
       />
     </>
+=======
+    </WishlistProvider>
+>>>>>>> origin/eman
   );
 }
